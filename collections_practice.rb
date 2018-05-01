@@ -28,9 +28,36 @@ end
 
 def first_wa (passed_array)
   
-  passed_array.map {|elements| elements.to_s}
+  new_array = []
   
+  passed_array.each do |item|
+    new_array << item
+  end  
+
   
-  passed_array.find { |elements| elements.include?("wa") }
+  passed_array.map! {|elements| elements.to_s}
+  passed_array.map! {|elements| elements[0,2]}
+  
+  passed_array.each_with_index {|elements, index|
+  
+      if elements == "wa"
+        return new_array[index]
+      end  
+  }
+end
+
+
+
+
+
+
+def remove_non_strings (passed_array)
+  
+    new_array = []
+    passed_array.map {|item| item.is_a? String ? new_array << item : nil}.compact!
   
 end
+
+
+
+
