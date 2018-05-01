@@ -1,5 +1,7 @@
 # your code goes here
 
+require 'pry'
+
 def begins_with_r (passed_array)
   
   i = 0
@@ -49,14 +51,18 @@ end
 
 
 
-
-
 def remove_non_strings (passed_array)
-  
     new_array = []
-    passed_array.map {|item| item.is_a? String ? new_array << item : nil}.compact!
-  
+    passed_array.map {|item| item.class == String ? new_array << item : nil}.compact!.flatten
 end
+
+
+
+
+
+
+
+
 
 
 
