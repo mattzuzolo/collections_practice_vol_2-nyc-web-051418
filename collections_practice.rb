@@ -177,22 +177,35 @@ end
 def organize_schools (input)
   
   hash_by_city = {}
-  school_name_array = []
+  iteration_location = ""
   
+  #create a new hash and fill out the keys with each city present in the input. Add an empty array as a value to be filled later
   input.each do |school_name, location_hash|
+    location_hash.each do |location_key, location_value|
+      iteration_location = location_value
+      hash_by_city[location_value] = []
+    end
+  end  
     
-    hash_by_city[ location_hash[:location] ] = school_name_array
-    hash_by_city[ location_hash[:location] ] << school_name if location_hash[:location] == hash_by_city[location]
-    
-  
-  end
-  
+  #now iterate over the new hash to begin filling it with data. Iterate over the input hash and check for repeated keys. If repeat then input apropriate value  
+  hash_by_city.each do |city, school_name_array_key|
+    input.each do |school_name, location_hash|
+      location_hash.each do |location_key, location_value|
+        if city == location_value
+          hash_by_city[city] << school_name
+        end
+      end
+    end
+  end  
   hash_by_city
-  binding.pry
-  
 end
 
 
+
+  # binding.pry
+  #       if location_hash[location] == 
+  #       hash_by_city[ location_hash[:location] ] = school_name_array
+  #       hash_by_city[ location_hash[:location] ] << school_name if location_hash[:location] == hash_by_city[location]
 
 
 
