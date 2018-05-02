@@ -76,16 +76,32 @@ def count_elements (passed_array)
         
 
     end #end passed_array each
-    passed_array.uniq
-    # passed_array.reject { |thing| passed_array.count(thing) > 1}
     
+    # passed_array.reject { |thing| passed_array.count(thing) > 1}
+    passed_array.uniq
 end #end method
 
 
 def merge_data (keys, data)
   
-  #binding.pry
+  output_array = []
+  complete_info = {}
   
+  keys.each do |person|
+   #firstname/name for each person
+      data.each do |given_name, extra_info|
+        binding.pry
+          complete_info = {first_name: person[:first_name]}.merge(given_name)
+          output_array << complete_info
+          
+      end
+    
+  end  
+  
+  output_array << complete_info
+  
+  
+  #desired output: [{:first_name=>"blake", :awesomeness=>10, :height=>"74", :last_name=>"johnson"}, {:first_name=>"ashley", :awesomeness=>9, :height=>60, :last_name=>"dubs"}]
 end
 
 
