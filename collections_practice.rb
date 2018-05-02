@@ -86,25 +86,51 @@ def merge_data (keys, data)
   
   output_array = []
   
+  #get names from the key parameter
   keys.each do |person|
-      
+    
+    #rest of the info is in the data parameter
       data.each do |more_info|
         
+        #need to make sure you're accessing info for right person
         if more_info[person[:first_name]]
-        
+          
+            #using .merge to combine the first hash (with first name) and second hash (with the rest of the data). Need to be aware of data levels so use person
+            #[:first_name] to maintain right level
             complete_info = {first_name: person[:first_name]}.merge(more_info[person[:first_name]])
-
+  
+            #add to the output_array on each iteration. Must return the array outside though because it will be overwritten on subsequent iterations
             output_array << complete_info
           # binding.pry
           end
-          
-   
       end #end data each
   end #end keys each
   output_array
 end #end big method
 
 
+
+def find_cool (input)
+  
+  name_and_temp_values = []
+  output_array = []
+  
+  input.each do |name_and_temp|
+    
+
+    
+    if name_and_temp_values.values.include?("cool")
+        output_array << name_and_temp
+    end  
+    
+    
+    
+    
+  end
+  
+  
+  
+end
 
 
 
