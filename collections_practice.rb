@@ -59,23 +59,38 @@ end
 
 
 
+
+
 def count_elements (passed_array)
+  
+  output_array = []
+  counter = 0
   
     passed_array.each do |passed_hash|
         passed_hash[:count] = 0
         
-        
+        output_array << {:name => passed_hash[:name]}
           passed_array.each do |deeper_hash|
   
             if deeper_hash[:name] == passed_hash[:name]
-              passed_hash[:count] += 1
+              counter = passed_hash[:count] + 1
+              
+              
+              
+              output_array << {:count => counter}
+              
             end #end if 
+            
+                 
           end  #end passed array deeper each
-    
-    
+
+   
     end #end passed_array each
     
+    output_array
+    
 end #end method
+
 
 
 
