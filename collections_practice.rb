@@ -85,15 +85,21 @@ end #end method
 def merge_data (keys, data)
   
   output_array = []
-  complete_info = {}
+  #complete_info = {}
   
   keys.each do |person|
    #firstname/name for each person
-      data.each do |given_name, extra_info|
-        binding.pry
-          complete_info = {first_name: person[:first_name]}.merge(given_name)
-          output_array << complete_info
+      data.each do |more_info|
+        more_info.each do |individual_info|
+
           
+          if individual_info != person[:first_name]
+            #complete_info = {first_name: person[:first_name]}.merge(thing)
+            #output_array << complete_info
+          binding.pry
+          
+        end
+        end
       end
     
   end  
