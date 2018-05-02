@@ -59,7 +59,14 @@ end
 
 
 
+def count_elements (passed_array)
+  
+    name_array = []
+    passed_array.each {|item| name_array << item }
 
+
+    #desired output: [{:name=>"blake", :count=>2}, {:name=>"ashley", :count=>1}]
+end
 
 
 
