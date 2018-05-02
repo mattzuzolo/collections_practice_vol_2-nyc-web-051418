@@ -88,27 +88,21 @@ def merge_data (keys, data)
   #complete_info = {}
   
   keys.each do |person|
-   #firstname/name for each person
+      given_name = person[:first_name]
       data.each do |more_info|
-        more_info.each do |individual_info|
+        
+      specific = more_info.values
 
-          
-          if individual_info != person[:first_name]
-            #complete_info = {first_name: person[:first_name]}.merge(thing)
+            complete_info = {first_name: person[:first_name]}.merge(specific)
+            specific << complete_info
             #output_array << complete_info
           binding.pry
+          end
           
-        end
-        end
-      end
-    
-  end  
-  
-  output_array << complete_info
-  
-  
-  #desired output: [{:first_name=>"blake", :awesomeness=>10, :height=>"74", :last_name=>"johnson"}, {:first_name=>"ashley", :awesomeness=>9, :height=>60, :last_name=>"dubs"}]
-end
+   
+      end #end data each
+  end #end keys each
+end #end big method
 
 
 
