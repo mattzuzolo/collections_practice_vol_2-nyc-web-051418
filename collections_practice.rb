@@ -61,21 +61,20 @@ end
 
 def count_elements (passed_array)
   
-    #gets inside of the top level array with hash elements
     passed_array.each do |passed_hash|
-      
-      #created new key at same level as name that will incrememnt up
-      passed_hash[:count] = 0
-      
-        passed_array.each do |deeper_hash|
-          deeper_hash[:name] == passed_hash[:name]
-            passed_hash[:count] += 1
-      
-      
-      end  #end passed array deeper each
+        passed_hash[:count] = 0
+        
+        
+          passed_array.each do |deeper_hash|
+  
+            if deeper_hash[:name] == passed_hash[:name]
+              passed_hash[:count] += 1
+            end #end if 
+          end  #end passed array deeper each
+    
     
     end #end passed_array each
-  
+    
 end #end method
 
 
