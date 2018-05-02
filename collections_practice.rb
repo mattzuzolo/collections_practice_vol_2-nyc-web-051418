@@ -136,17 +136,38 @@ def organize_schools (input)
   hash_by_city = {}
   school_name_array = []
   
+  
+  school_name_nyc = []
+  school_name_sf = []
+  school_name_chicago = []
+  
   input.each do |school_name, location_hash|
     
+    # binding.pry
+    
     location_hash.each do |location_key, location_value|
-      #binding.pry
-        if location_hash[:location] == location_value
-          school_name_array << school_name
-          hash_by_city[location_value] = school_name_array
-        end  
+      
+      
+    
+    if location_value == "NYC"
+      school_name_nyc << school_name
+      hash_by_city["NYC"] = school_name_nyc
+    elsif location_value == "SF"
+      school_name_sf << school_name
+      hash_by_city["SF"] = school_name_sf
+    elsif location_value == "Chicago"
+      school_name_chicago << school_name
+      hash_by_city["Chicago"] = school_name_chicago  
+    else
+    end
+    
+    # if location_value == location_hash[:location]
+    #   hash_by_city[location_value] = school_name_array
+    
+    # end   
+      
         
-        
-    end #end location hash
+     end #end location hash
     
   end #input each end
   hash_by_city
