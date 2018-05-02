@@ -120,12 +120,13 @@ def find_cool (input)
     if name_and_temp[:temperature] == "cool"
       
       # output_array << name_and_temp[:temperature]
-      output_array << name_and_temp[:temperature]
-      # binding.pry
+    output_array << name_and_temp
+    #binding.pry
+     
     end
     
   end
-
+  output_array
 end
 
 
@@ -149,7 +150,7 @@ def organize_schools (input)
     
   end #input each end
   hash_by_city
-  binding.pry
+  #binding.pry
   
 end #method end
 
