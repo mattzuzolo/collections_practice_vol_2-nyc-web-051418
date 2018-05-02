@@ -112,14 +112,14 @@ end #end big method
 
 def find_cool (input)
   
-  name_and_temp_values = []
+  
   output_array = []
   
   input.each do |name_and_temp|
     
-
+      name_and_temp_values = name_and_temp.values
     
-    if name_and_temp_values.values.include?("cool")
+    if (name_and_temp_values).include?("cool")
         output_array << name_and_temp
     end  
     
