@@ -61,12 +61,22 @@ end
 
 def count_elements (passed_array)
   
-    name_array = []
-    passed_array.each {|item| name_array << item }
-
-
-    #desired output: [{:name=>"blake", :count=>2}, {:name=>"ashley", :count=>1}]
-end
+    #gets inside of the top level array with hash elements
+    passed_array.each do |passed_hash|
+      
+      #created new key at same level as name that will incrememnt up
+      passed_hash[:count] = 0
+      
+        passed_array.each do |deeper_hash|
+          deeper_hash[:name] == passed_hash[:name]
+            passed_hash[:count] += 1
+      
+      
+      end  #end passed array deeper each
+    
+    end #end passed_array each
+  
+end #end method
 
 
 
