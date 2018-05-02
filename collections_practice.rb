@@ -134,7 +134,6 @@ def organize_schools (input)
   
   hash_by_city = {}
   school_name_array = []
-  nyc_school = []
   
   input.each do |school_name, location_hash|
     
@@ -143,9 +142,6 @@ def organize_schools (input)
         if location_hash[:location] == location_value
           school_name_array << school_name
           hash_by_city[location_value] = school_name_array
-        else
-          school_name_array = []
-          
         end  
         
         
