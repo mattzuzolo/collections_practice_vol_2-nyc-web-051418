@@ -92,15 +92,16 @@ def merge_data (keys, data)
         
         if more_info[given_name]
         
-            complete_info = {first_name: person[:first_name]}.merge(specific)
+            complete_info = {first_name: person[:first_name]}.merge(more_info[given_name])
 
             output_array << complete_info
-          binding.pry
+          # binding.pry
           end
           
    
       end #end data each
   end #end keys each
+  output_array
 end #end big method
 
 
