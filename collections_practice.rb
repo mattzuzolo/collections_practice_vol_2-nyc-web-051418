@@ -87,12 +87,12 @@ def merge_data (keys, data)
   output_array = []
   
   keys.each do |person|
-      given_name = person[:first_name]
+      
       data.each do |more_info|
         
-        if more_info[given_name]
+        if more_info[person[:first_name]]
         
-            complete_info = {first_name: person[:first_name]}.merge(more_info[given_name])
+            complete_info = {first_name: person[:first_name]}.merge(more_info[person[:first_name]])
 
             output_array << complete_info
           # binding.pry
