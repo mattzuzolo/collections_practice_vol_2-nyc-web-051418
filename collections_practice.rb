@@ -3,7 +3,7 @@
 require 'pry'
 
 def begins_with_r (passed_array)
-  
+ 
   i = 0
   still_true = true
   
@@ -22,14 +22,10 @@ end
 
 
 def contain_a (passed_array)
-  
     passed_array.select { |elements| elements.include?("a") }
- 
 end
 
-
 def first_wa (passed_array)
-  
   new_array = []
   
   passed_array.each do |item|
@@ -48,21 +44,12 @@ def first_wa (passed_array)
   }
 end
 
-
-
-
 def remove_non_strings (passed_array)
     new_array = []
     passed_array.map {|item| item.class == String ? new_array << item : nil}.compact!.flatten
 end
 
-
-
-
-
-
 def count_elements (passed_array)
-  
       passed_array.each do |passed_hash|
         passed_hash[:count] = 0
 
@@ -80,7 +67,6 @@ def count_elements (passed_array)
     # passed_array.reject { |thing| passed_array.count(thing) > 1}
     passed_array.uniq
 end #end method
-
 
 def merge_data (keys, data)
   
@@ -108,11 +94,7 @@ def merge_data (keys, data)
   output_array
 end #end big method
 
-
-
 def find_cool (input)
-  
-  
   output_array = []
   
   input.each do |name_and_temp|
@@ -131,49 +113,49 @@ end
 
 
 
-def organize_schools (input)
+# def organize_schools (input)
   
-  hash_by_city = {}
-  school_name_array = []
+#   hash_by_city = {}
+#   school_name_array = []
   
   
-  school_name_nyc = []
-  school_name_sf = []
-  school_name_chicago = []
+#   school_name_nyc = []
+#   school_name_sf = []
+#   school_name_chicago = []
   
-  input.each do |school_name, location_hash|
+#   input.each do |school_name, location_hash|
     
-    # binding.pry
+#     # binding.pry
     
-    location_hash.each do |location_key, location_value|
+#     location_hash.each do |location_key, location_value|
       
       
     
-    if location_value == "NYC"
-      school_name_nyc << school_name
-      hash_by_city["NYC"] = school_name_nyc
-    elsif location_value == "SF"
-      school_name_sf << school_name
-      hash_by_city["SF"] = school_name_sf
-    elsif location_value == "Chicago"
-      school_name_chicago << school_name
-      hash_by_city["Chicago"] = school_name_chicago  
-    else
-    end
+#     if location_value == "NYC"
+#       school_name_nyc << school_name
+#       hash_by_city["NYC"] = school_name_nyc
+#     elsif location_value == "SF"
+#       school_name_sf << school_name
+#       hash_by_city["SF"] = school_name_sf
+#     elsif location_value == "Chicago"
+#       school_name_chicago << school_name
+#       hash_by_city["Chicago"] = school_name_chicago  
+#     else
+#     end
     
-    # if location_value == location_hash[:location]
-    #   hash_by_city[location_value] = school_name_array
+#     # if location_value == location_hash[:location]
+#     #   hash_by_city[location_value] = school_name_array
     
-    # end   
+#     # end   
       
         
-     end #end location hash
+#     end #end location hash
     
-  end #input each end
-  hash_by_city
-  #binding.pry
+#   end #input each end
+#   hash_by_city
+#   #binding.pry
   
-end #method end
+# end #method end
 
 #input:
 
@@ -188,4 +170,36 @@ end #method end
 #sort by city
 
 #{"NYC"=>["flatiron school bk", "flatiron school", "general assembly"], "SF"=>["dev boot camp", "Hack Reactor"], "Chicago"=>["dev boot camp chicago"]}
+
+
+
+
+def organize_schools (input)
+  
+  hash_by_city = {}
+  school_name_array = []
+  
+  input.each do |school_name, location_hash|
+    
+    hash_by_city[ location_hash[:location] ] = school_name_array
+    hash_by_city[ location_hash[:location] ] << school_name if location_hash[:location] == hash_by_city[location]
+    
+  
+  end
+  
+  hash_by_city
+  binding.pry
+  
+end
+
+
+
+
+
+
+
+
+
+
+
 
