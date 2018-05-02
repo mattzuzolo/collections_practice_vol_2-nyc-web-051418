@@ -117,23 +117,57 @@ def find_cool (input)
   
   input.each do |name_and_temp|
     
-      name_and_temp_values = name_and_temp.values
-    
-    if (name_and_temp_values).include?("cool")
-        output_array << name_and_temp
-    end  
-    
-    
-    
+    if name_and_temp[:temperature] == "cool"
+      
+      # output_array << name_and_temp[:temperature]
+      output_array << name_and_temp[:temperature]
+      # binding.pry
+    end
     
   end
-  
-  
-  
+
 end
 
 
 
+def organize_schools (input)
+  
+  hash_by_city = {}
+  school_name_array = []
+  nyc_school = []
+  
+  input.each do |school_name, location_hash|
+    
+    location_hash.each do |location_key, location_value|
+      #binding.pry
+        if location_hash[:location] == location_value
+          school_name_array << school_name
+          hash_by_city[location_value] = school_name_array
+        else
+          school_name_array = []
+          
+        end  
+        
+        
+    end #end location hash
+    
+  end #input each end
+  hash_by_city
+  binding.pry
+  
+end #method end
+
+#input:
+
+# {"flatiron school bk"=>{:location=>"NYC"},
+# "flatiron school"=>{:location=>"NYC"},
+# "dev boot camp"=>{:location=>"SF"},
+# "dev boot camp chicago"=>{:location=>"Chicago"},
+# "general assembly"=>{:location=>"NYC"},
+# "Hack Reactor"=>{:location=>"SF"}}
 
 
+#sort by city
+
+#{"NYC"=>["flatiron school bk", "flatiron school", "general assembly"], "SF"=>["dev boot camp", "Hack Reactor"], "Chicago"=>["dev boot camp chicago"]}
 
