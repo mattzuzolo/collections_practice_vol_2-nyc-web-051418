@@ -65,7 +65,8 @@ def count_elements (passed_array)
     end #end passed_array each
     
     # passed_array.reject { |thing| passed_array.count(thing) > 1}
-    passed_array.uniq
+    #passed_array.uniq
+    binding.pry
 end #end method
 
 def merge_data (keys, data)
